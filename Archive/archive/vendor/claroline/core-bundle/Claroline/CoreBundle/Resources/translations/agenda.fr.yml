@@ -1,0 +1,71 @@
+add_event : "Ajouter un évènement"
+all day: "Toute la journée"
+end : "Fin"
+error: "Une erreure s'est produite, veuillez réessayer"
+agenda_form_title : Titre
+agenda_form_end : "Date de fin (jj/mm/aaaa)"
+agenda_form_start : "Date de début (jj/mm/aaaa)"
+agenda_form_description : "Description"
+agenda_form_allDay : "Tâche"
+agenda_form_priority_High : "Haute"
+agenda_form_priority : "Priorité"
+close : Fermer
+confirm : "Êtes-vous sûr"
+date_invalid : "Une erreur s'est produite, verifiez que la date début soit plus petit que la date de fin"
+event_update : "Mise à jour reussie"
+high : "Haute"
+low : "Basse"
+medium : "Normale"
+modify : "Modifier une entrée"
+new entry: "Nouvelle entrée"
+tasks : 'Tâches'
+no event found : "Pas d'évènements"
+start date : "Date début"
+title : "Titre de l'évènement ne peut pas être vide"
+update : "mettre à jour"
+prev : '<'
+next : '>'
+prevYear : '<<'
+nextYear : '>>'
+today : 'auj'
+month : 'mois'
+week : 'semaine'
+day: 'jour'
+january: 'Janvier'
+february: 'Février'
+mars: 'Mars'
+april: 'Avril'
+may: 'Mai'
+june: 'Juin'
+july: 'Juillet'
+august: 'Août'
+september: 'Septembre'
+october: 'Octobre'
+november: 'Novembre'
+december: 'Décembre'
+jan: 'Janv'
+feb: 'Févr'
+mars: 'Mars'
+apr: 'Avr'
+may: 'Mai'
+jun: 'Juin'
+jul: 'Juil'
+aug: 'Août'
+sep: 'Sept'
+oct: 'Oct'
+nov: 'Nov'
+dec: 'Déc'
+monday: 'Lundi'
+tuesday: 'Mardi'
+wednesday: 'Mercredi'
+thursday: 'Jeudi'
+friday: 'Vendredi'
+saturday: 'Samedi'
+sunday: 'Dimanche'
+mon: 'Lun'
+tue: 'Mar'
+wed: 'Mer'
+thu: 'Jeud'
+fri: 'Ven'
+sat: 'Sam'
+sun: 'Dim'

@@ -1,0 +1,141 @@
+{% extends "ClarolineCoreBundle:Administration:layout.html.twig" %}
+
+{% block title %}{{ parent() ~ ' - ' ~ 'analytics_resources' | trans({}, 'platform') }}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style type="text/css">
+        .pie-chart{
+            height:600px;
+        }
+    </style>
+    <link rel="stylesheet" href="{{ asset('bundles/clarolinecore/css/common/jqplot/jquery.jqplot.css') }}" type="text/css" />
+{% endblock %}
+
+{% block breadcrumb %}
+    {{
+        macros.breadcrumbs([
+            {
+                'icon': 'icon-cog',
+                'name': 'administration'|trans({}, 'platform'),
+                'href': path('claro_admin_index')
+            },
+            {
+                'name': 'admin_analytics'|trans({}, 'platform'),
+                'href': ''
+            }
+        ])
+    }}
+{% endblock %}
+
+{% block section_content %}
+    <div class="panel-heading">
+        <h3 class="panel-title">{{ 'admin_analytics'|trans({}, 'platform') }}</h3>
+    </div>
+    <div class="panel-body" id="workspace-list-div">
+        {% include 'ClarolineCoreBundle:Administration:analytics_navbar.html.twig'%}
+
+        <div class="margin">
+            <h1>{{ wsCount }}</h1>
+            <p><i class="icon-book"></i> {{'workspaces'|trans({}, 'platform')}}</p>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div id="analytics-resources-piechart" class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="icon-bar-chart"></i>
+                        {{'resources_usage_ratio'|trans({}, 'platform')}}
+                    </div>
+                    <div id="collapse-piechart" class="panel-body">
+                        <div id="container-piechart">
+                            <div id="resources-pie-chart" class="pie-chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="analytics-resources-list" class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="icon-list"></i>
+                        {{'resources_usage_list'|trans({}, 'platform')}}
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-condensed">
+                            <tr><th>{{'resource'|trans({}, 'platform')}}</th><th>#</th></tr>
+                            {% for resource in resourceCount %}
+                                <tr><td>{{resource.name|trans({}, 'resource')}}</td><td>{{resource.total}}</td></tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <!--[if lt IE 9]><script language="javascript" type="text/javascript" src="{{ asset('bundles/frontend/jquery/plugin/jqplot/excanvas.min.js') }}"></script><![endif]-->
+    <script type="text/javascript" src="{{ asset('bundles/frontend/jquery/plugin/jqplot/jquery.jqplot.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/frontend/jquery/plugin/jqplot/plugins/jqplot.pieRenderer.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/frontend/jquery/plugin/jqplot/plugins/jqplot.canvasTextRenderer.min.js') }}"></script>
+
+    <script type="text/javascript">
+        var chartData = [];
+        {% for resource in resourceCount %}
+            chartData.push(["{{resource.name|trans({}, 'resource')}}",{{resource.total}}]);
+        {% endfor %}
+        var bg_color = "transparent";
+        if ($.browser.msie && parseInt($.browser.version, 10) <= 8) bg_color = "#fff";
+        $(document).ready(function(){
+            if (chartData.length>0) {
+                var resourcesPlot = $.jqplot(
+                    'resources-pie-chart',
+                    [chartData],
+                    {
+                        title: {show: false},
+                        grid: {
+                            drawBorder: false,
+                            shadow: false,
+                            background: bg_color,
+                            useNegativeColors: false
+                        },
+                        highlighter: {
+                            show: false
+                        },
+                        cursor: {
+                            show: false,
+                            zoom: false,
+                            showTooltip: false
+                        },
+                        seriesDefaults: {
+                            showMarker:true,
+                            renderer:$.jqplot.PieRenderer,
+                            rendererOptions:{
+                                showDataLabels: true,
+                                dataLabelThreshold: 2,
+                                dataLabels: 'percent',
+                                sliceMargin:0.3,
+                                dataLabelFormatString: '%.1f%%',
+                                highlightMouseOver:false
+                            },
+                            shadow:false
+                        },
+                        legend:{
+                            location: 's',
+                            border:'none',
+                            renderer: $.jqplot.CavasTextRenderer,
+                            show:true,
+                            showMarker:true,
+                            rendererOptions:{
+                                numberRows:7
+                            },
+                            backgroundColor:bg_color,
+                            placement:'outsideGrid'
+                        },
+                    }
+                );
+            }
+        });
+    </script>
+
+{% endblock %}

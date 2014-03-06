@@ -1,0 +1,11 @@
+# This file gathers container configuration that must be loaded at the application level
+
+imports:
+    - { resource: config.yml }
+
+parameters:
+    test.client.class: Claroline\CoreBundle\Library\Testing\TransactionalTestClient
+    # next parameters override the core ones (CoreBundle\Resources\config\parameters.yml)
+    claroline.param.files_directory: "%kernel.root_dir%/../test/files"
+    claroline.param.thumbnails_directory: "%kernel.root_dir%/../test/thumbnails"
+    claroline.param.templates_directory: "%kernel.root_dir%/../test/templates/"

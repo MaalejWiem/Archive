@@ -1,0 +1,34 @@
+{
+    "name": "claroline/migration-bundle",
+    "description": "Claroline migration bundle",
+    "keywords": ["Claroline", "Migration"],
+    "homepage": "http://www.claroline.net",
+    "type": "bundle",
+    "license": "",
+    "authors": [
+        {
+            "name": "Claroline development team",
+            "email": "dev@claroline.net",
+            "homepage": "http://github.com/claroline"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/framework-bundle": "~2.0",
+        "symfony/console": "~2.0",
+        "symfony/twig-bridge": "~2.0",
+        "symfony/twig-bundle": "~2.0",
+        "doctrine/orm": "~2.2",
+        "doctrine/migrations": "dev-master",
+        "jdorn/sql-formatter": "~1.0",
+        "claroline/kernel-bundle": "~1.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "dev-master@dev",
+        "mikey179/vfsStream": "dev-master"
+    },
+    "autoload": {
+        "psr-0": { "Claroline\\MigrationBundle": "" }
+    },
+    "target-dir": "Claroline/MigrationBundle"
+}

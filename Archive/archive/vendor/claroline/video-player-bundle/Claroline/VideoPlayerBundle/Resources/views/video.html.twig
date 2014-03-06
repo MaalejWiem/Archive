@@ -1,0 +1,28 @@
+{% set layout = "ClarolineCoreBundle:Workspace:layout.html.twig" %}
+
+{% if isDesktop() %}
+    {% set layout = "ClarolineCoreBundle:Desktop:layout.html.twig" %}
+{% endif %}
+
+{% extends layout %}
+
+{% block section_content %}
+    <div class="panel-heading">
+        <h3 class="panel-title">{{ video.getResourceNode().getName() }}</h3>
+    </div>
+    <div class="panel-body">
+        <video width="100%" controls>
+            <source src="{{ path ('claro_stream_video', {'node': video.getResourceNode().getId()}) }}" type="{{ video.getMimeType() }}">
+            <!-- In case of the browser does not support the video tag: -->
+            <object width="100%" height="400">
+            <param name="movie" value="{{ path ('claro_stream_video', {'node': video.getResourceNode().getId()})}}">
+                <embed src="{{ path ('claro_stream_video', {'node': video.getResourceNode().getId()})}}"></embed>
+            </object>
+        </video>
+    </div>
+    <div class="panel-footer">
+        <a class="btn btn-primary" href="{{ path('claro_resource_download') }}?ids[]={{video.getResourceNode().getResourceNode().getId()}}">
+            <i class="icon-download"></i> {{ 'download'|trans({}, 'platform') }}
+        </a>
+    </div>
+{% endblock %}

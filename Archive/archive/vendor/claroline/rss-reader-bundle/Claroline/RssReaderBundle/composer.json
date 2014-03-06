@@ -1,0 +1,26 @@
+{
+    "name": "claroline/rss-reader-bundle",
+    "description": "Claroline RSS reader plugin",
+    "keywords": ["Claroline", "Plugin", "RSS"],
+    "homepage": "http://www.claroline.net",
+    "type": "claroline-plugin",
+    "license": "",
+    "authors": [
+        {
+            "name": "Claroline development team",
+            "email": "dev@claroline.net",
+            "homepage": "http://github.com/claroline"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "claroline/core-bundle": "~2.0"
+    },
+    "autoload": {
+        "psr-0": { "Claroline\\RssReaderBundle": "" }
+    },
+    "target-dir": "Claroline/RssReaderBundle",
+    "extra": {
+        "dbVersion": "20130925173308"
+    }
+}

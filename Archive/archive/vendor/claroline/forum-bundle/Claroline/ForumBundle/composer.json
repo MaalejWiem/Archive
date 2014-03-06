@@ -1,0 +1,23 @@
+{
+    "name": "claroline/forum-bundle",
+    "description": "Claroline forum plugin",
+    "keywords": ["Claroline", "Plugin", "Forum"],
+    "homepage": "http://www.claroline.net",
+    "type": "claroline-plugin",
+    "license": "",
+    "authors": [
+        {
+            "name": "Claroline development team",
+            "email": "dev@claroline.net",
+            "homepage": "http://github.com/claroline"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "claroline/core-bundle": ">=2.1.11,<3.0"
+    },
+    "autoload": {
+        "psr-0": { "Claroline\\ForumBundle": "" }
+    },
+    "target-dir": "Claroline/ForumBundle"
+}

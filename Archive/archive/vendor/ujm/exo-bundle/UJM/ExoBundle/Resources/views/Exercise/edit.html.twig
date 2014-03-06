@@ -1,0 +1,222 @@
+{#
+ # ExoOnLine
+ # Copyright or © or Copr. Université Jean Monnet (France), 2012
+ # dsi.dev@univ-st-etienne.fr
+ #
+ # This software is a computer program whose purpose is to [describe
+ # functionalities and technical features of your software].
+ #
+ # This software is governed by the CeCILL license under French law and
+ # abiding by the rules of distribution of free software.  You can  use,
+ # modify and/ or redistribute the software under the terms of the CeCILL
+ # license as circulated by CEA, CNRS and INRIA at the following URL
+ # "http://www.cecill.info".
+ #
+ # As a counterpart to the access to the source code and  rights to copy,
+ # modify and redistribute granted by the license, users are provided only
+ # with a limited warranty  and the software's author,  the holder of the
+ # economic rights,  and the successive licensors  have only  limited
+ # liability.
+ #
+ # In this respect, the user's attention is drawn to the risks associated
+ # with loading,  using,  modifying and/or developing or reproducing the
+ # software by the user in light of its specific status of free software,
+ # that may mean  that it is complicated to manipulate,  and  that  also
+ # therefore means  that it is reserved for developers  and  experienced
+ # professionals having in-depth computer knowledge. Users are therefore
+ # encouraged to load and test the software's suitability as regards their
+ # requirements in conditions enabling the security of their systems and/or
+ # data to be ensured and,  more generally, to use and operate it in the
+ # same conditions as regards security.
+ #
+ # The fact that you are presently reading this means that you have had
+ # knowledge of the CeCILL license and that you accept its terms.
+#}
+
+{% set layout = "ClarolineCoreBundle:Workspace:layout.html.twig" %}
+{% set _resource = entity %}
+
+{% if isDesktop() %}
+    {% set layout = "ClarolineCoreBundle:Desktop:layout.html.twig" %}
+{% endif %}
+
+{% extends layout %}
+
+{% block title %} {{ 'exercise edit' | trans }} {% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/frontend/jquery/plugin/datetimepicker/build/css/bootstrap-datetimepicker.min.css') }}">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/ujmexo/css/dateTimePicker.css') }}">
+{% endblock %}
+
+{% block resourceBreadcrumb %}
+    <li><a href="{{ path('claro_resource_open', { 'resourceType': entity.resourceNode.resourceType.name(), 'node': entity.resourceNode.id }) }}">{{ entity.getResourceNode().getName() }}</a></li>
+    <li class="active">{{ 'exercise edit' | trans }}</li>
+{% endblock %}
+
+{% block section_content %}
+    {{ tinymce_init() }}
+
+    <div class="panel-heading">
+        <h1>{{ 'exercise edit' | trans }}</h1>
+    </div>
+    <div class="panel-body">
+        <a class="btn btn-primary" href="{{ path('claro_resource_open', { 'resourceType': entity.resourceNode.resourceType.name(), 'node': entity.resourceNode.id }) }}">
+            <i class="icon-arrow-left"></i> {{ 'back' | trans }}
+        </a>
+    </div>
+
+    <form action="{{ path('ujm_exercise_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+        <div class="list-group">
+            <div class="list-group-item">
+                {#--------------------------------------------- Definition of the exercise -----------------------------------------------#}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{ 'exercise definition' | trans }}</h3>
+                    </div>
+                    <div class="panel-body">
+                        {{ form_row(edit_form.title) }}
+                        {{ form_row(edit_form.description) }}
+                        <div class="form-group row date picker">
+                            {{ form_label(edit_form.start_date) }}
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    {{ form_widget(edit_form.start_date) }}
+                                    <span class="input-group-btn add-on">
+                                        <a class="btn btn-default">
+                                            <i class="icon-calendar"></i>
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            {{ form_label(edit_form.useDateEnd) }}
+                            <div class="col-md-9">{{ form_widget(edit_form.useDateEnd) }}</div>
+                        </div>
+                        <div class="form-group row date picker" id="dateEnd" style="display: none;">
+                            {{ form_label(edit_form.end_date) }}
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    {{ form_widget(edit_form.end_date) }}
+                                    <span class="input-group-btn add-on">
+                                        <a class="btn btn-default"><i class="icon-calendar"></i></a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {#--------------------------------------------- Questions -----------------------------------------------#}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{ 'questions' | trans }}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group row">
+                            {{ form_label(edit_form.shuffle) }}
+                            <div class="col-md-9">{{ form_widget(edit_form.shuffle) }}</div>
+                        </div>
+                            {{ form_row(edit_form.nbQuestion) }}
+                    </div>
+                </div>
+                {#--------------------------------------------- End of Assessment ----------------------------------------------#}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{ 'At the end of assessment' | trans }}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group row">
+                            {{ form_label(edit_form.doprint) }}
+                            <div class="col-md-9">{{ form_widget(edit_form.doprint) }}</div>
+                        </div>
+                        {{ form_row(edit_form.correctionMode) }}
+                        <div class="form-group row date picker" id="CorrectionMode" style="display: none;">
+                            {{ form_label(edit_form.dateCorrection) }}
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    {{ form_widget(edit_form.dateCorrection) }}
+                                    <span class="input-group-btn add-on">
+                                        <a class="btn btn-default"><i class="icon-calendar"></i></a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        {{ form_row(edit_form.markMode) }}
+                    </div>
+                </div>
+                {#--------------------------------------------- Passage ----------------------------------------------#}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{ 'paper' | trans }}</h3>
+                    </div>
+                    <div class="panel-body">
+                        {{ form_row(edit_form.duration) }}
+                        {{ form_row(edit_form.maxAttempts) }}
+                        <div class="form-group row">
+                            {{ form_label(edit_form.dispButtonInterrupt) }}
+                            <div class="col-md-9">{{ form_widget(edit_form.dispButtonInterrupt) }}</div>
+                        </div>
+                        <div class="form-group row">
+                            {{ form_label(edit_form.lockAttempt) }}
+                            <div class="col-md-9">{{ form_widget(edit_form.lockAttempt) }}</div>
+                        </div>
+                        {{ form_rest(edit_form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-primary">{{ "save" | trans }}</button>
+            <a class="btn btn-default" href="{{ path('claro_resource_open', { 'resourceType': entity.resourceNode.resourceType.name(), 'node': entity.resourceNode.id }) }}">
+                {{ 'cancel' | trans({}, 'platform') }}
+            </a>
+        </div>
+    </form>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+    <script src="{{ asset('bundles/ujmexo/js/dateTimePicker.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/frontend/jquery/plugin/datetimepicker/build/js/bootstrap-datetimepicker.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/frontend/jquery/plugin/datetimepicker/src/js/locales/bootstrap-datetimepicker.fr.js') }}"></script>
+
+    <script type="text/javascript">
+
+        //To disable the feature not yet implemented
+        $(document).ready(function() {
+            $('#ujm_exobundle_exercisetype_doprint').attr("disabled", true);
+            $('#ujm_exobundle_exercisetype_duration').attr("disabled", true);
+
+            if($("#ujm_exobundle_exercisetype_useDateEnd").attr("checked")) {
+                $('#dateEnd').css({"display" : "block"});
+            }
+
+            if ($("*[id$='_exercisetype_correctionMode']").val() == 3) {
+                $('#CorrectionMode').css({"display" : "block"});
+            }
+        });
+
+        $("#ujm_exobundle_exercisetype_useDateEnd").change(function () {
+            if(this.checked) {
+                $('#dateEnd').css({"display" : "block"});
+            } else {
+                $('#dateEnd').css({"display" : "none"});
+            }
+        });
+
+        $("#ujm_exobundle_exercisetype_correctionMode").change(function () {
+            if ($("*[id$='_exercisetype_correctionMode']").val() == 3) {
+                $('#CorrectionMode').css({"display" : "block"});
+            } else {
+                $('#CorrectionMode').css({"display" : "none"});
+            }
+        });
+    </script>
+{% endblock %}

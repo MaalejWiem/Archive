@@ -1,0 +1,1 @@
+<?php return unserialize('a:2:{i:0;O:36:"JMS\\DiExtraBundle\\Annotation\\Service":5:{s:2:"id";N;s:6:"parent";N;s:6:"public";N;s:5:"scope";N;s:8:"abstract";N;}i:1;O:32:"JMS\\DiExtraBundle\\Annotation\\Tag":2:{s:4:"name";s:14:"security.voter";s:10:"attributes";a:0:{}}}');

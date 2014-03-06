@@ -1,0 +1,1 @@
+<?php return unserialize('a:1:{i:0;O:45:"JMS\\DiExtraBundle\\Annotation\\DoctrineListener":4:{s:6:"events";a:2:{i:0;s:10:"prePersist";i:1;s:9:"preUpdate";}s:10:"connection";s:7:"default";s:4:"lazy";b:1;s:8:"priority";i:0;}}');

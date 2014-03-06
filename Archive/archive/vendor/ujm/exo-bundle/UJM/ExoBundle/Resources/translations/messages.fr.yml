@@ -1,0 +1,446 @@
+##
+ # ExoOnLine
+ # Copyright or © or Copr. Université Jean Monnet (France), 2012
+ # dsi.dev@univ-st-etienne.fr
+ #
+ # This software is a computer program whose purpose is to [describe
+ # functionalities and technical features of your software].
+ #
+ # This software is governed by the CeCILL license under French law and
+ # abiding by the rules of distribution of free software.  You can  use,
+ # modify and/ or redistribute the software under the terms of the CeCILL
+ # license as circulated by CEA, CNRS and INRIA at the following URL
+ # "http://www.cecill.info".
+ #
+ # As a counterpart to the access to the source code and  rights to copy,
+ # modify and redistribute granted by the license, users are provided only
+ # with a limited warranty  and the software's author,  the holder of the
+ # economic rights,  and the successive licensors  have only  limited
+ # liability.
+ #
+ # In this respect, the user's attention is drawn to the risks associated
+ # with loading,  using,  modifying and/or developing or reproducing the
+ # software by the user in light of its specific status of free software,
+ # that may mean  that it is complicated to manipulate,  and  that  also
+ # therefore means  that it is reserved for developers  and  experienced
+ # professionals having in-depth computer knowledge. Users are therefore
+ # encouraged to load and test the software's suitability as regards their
+ # requirements in conditions enabling the security of their systems and/or
+ # data to be ensured and,  more generally, to use and operate it in the
+ # same conditions as regards security.
+ #
+ # The fact that you are presently reading this means that you have had
+ # knowledge of the CeCILL license and that you accept its terms.
+##
+
+# A
+access my question bank: Accéder à ma banque de questions
+actions: Actions
+add: Ajouter
+add a new picture: Ajouter une nouvelle image
+addChoice: Ajouter un choix
+addDoc: Ajouter un document
+add hint: Ajouter un indice
+add user: Ajouter un utilisateur
+administration: Administration
+after the last attempt: Après le dernier essai
+alert ending: Etes-vous sur de vouloir terminer ? (Vous ne pourrez plus modifier vos réponses)
+allQuestion: Toutes
+already: Cette question est déjà partagée avec cet utilisateur
+alreadyExist: Ce nom existe déjà.
+alter category: Modifier cette catégorie
+answer_coched: Aucune réponse attendue n\'est cochée
+answer zone: Zone de réponse
+at the end of assessment: A la fin du test
+at the same time that the correction: En même temps que la correction
+availability of correction: Disponibilité de la correction
+availability of score: Disponibilité de la note
+
+# B
+back: Retour
+back to the list: Retour à la liste
+bank of questions: Banque de questions
+
+# C
+category: Catégorie
+calculationMeasureDifficulty: Il se calcul avec le nombre de candidats ayant répondu correctement divisé par le nombre total de répondants
+cercle: Cercle
+change: Changer
+changeName: Changer le nom du document
+changeOrder: Pour changer l'ordre des questions, déplacez-les en utilisant le glisser/déposer
+choice: Choix
+choose: Choisir
+choose_type: Choisir un type
+chooseType: Choisissez le type de document à afficher
+close: Fermer
+color: Couleur
+comment: Commentaire
+compose: Composer
+consult_hint: Consulter l\'indice entraîne une pénalité, voulez vous continuer
+containSearch: Dont la question contient
+correct: Correcte
+correction: Correction
+correction date: Date de la correction
+course_name: Nom du Cours
+create: Créer
+create a new category: Créer une nouvelle catégorie
+create a new entry: Créer une nouvelle entrée
+creationDate: Date de création
+
+# D
+date: Date
+delDocQuestion: Supprimer ce document ainsi que toutes les questions qui y sont liées
+delete: Supprimer
+delete document: Suppression de document
+delete of my bank: Supprimer de ma banque
+delete of my exercise: Supprimer de mon exercice
+description: Description
+display all on this page: Tout afficher sur cette page
+display pagination: Afficher la pagination
+docimology: Docimologie
+docManage: Gestion de mes documents
+docName: Nom du document
+document: Document
+doNothing: Ne rien faire et revenir à la liste de mes documents
+drop category: Supprimer cette catégorie
+duration: Durée
+
+# E
+edit: Editer
+edit a category: Editer une catégorie
+edit a question: Editer une question
+end date: Date de fin
+entry: Entrer
+erase: Pour effacer une zone de réponse, maintenez la touche 's' enfoncée et cliquez sur la croix permettant de la déplacer
+exercise: Exercice
+exercise creation: Création d'un exercice
+exercise definition: Définition de l'exercice
+exercise edit: Modification de l'exercice
+exit: Quitter
+expected answer: Réponse attendue
+explainCoeffDis0: Les copies doivent avoir les mêmes questions pour pouvoir calculer le coefficient de discrimination.
+explainCoeffDis1: Analyse de la pertinence des questions, ce coefficient de corrélation varie de -1 à + 1.
+explainCoeffDis2: Les questions dont le coefficient de discrimination se situe entre 0,35 et 0,65 maximisent la discrimination des étudiants.
+explainCoeffDis3: Les questions ayant un indice négatif signalent une incohérence, les meilleurs candidats échouent à ces questions tandis que les plus faibles réussissent.
+explainMeasureDifficulty: L'indice de difficulté équivaut à un pourcentage de réussite à la question
+
+# F
+feedback: Commentaire
+findBy: Trouver par
+findIn: Trouver dans
+findLabel: Trouver un document avec un label spécifique
+findQuestion: Rechercher des questions
+findWhat: Ce que vous cherchez
+final mark: Note finale
+finish: Terminer
+frequency: Fréquence
+from: A partir du
+
+# G
+graphic: Graphique
+group: Groupe
+
+# H
+hide Instructions: Masquer les consignes
+hint: Indice
+hints: Indices
+hint number: Num indice
+histoDiscrimination: Coefficient de discrimination
+histoMarks: Histogramme des notes
+histoMeasureOfDifficulty: Histogramme de l'indice de difficulté
+histoSuccess: Histogramme de réussite
+hole: Blancs
+
+# I
+infiny: Infini
+infoMark: Les éventuelles pénalités sont à prendre en compte dans votre notation
+infoMeasureDifficulty: Cet indice ne prend pas en compte les étudiants n'ayant pas vu la question
+interupt: Interrompre
+invite_question: L\'invite de la question doit être rempli
+isInterupt: Interrompu
+image: Image
+import: Importer
+import questions: Importer des questions
+interactionGraphic creation: Création d'une question Graphique
+interactionGraphic Edition: Edition d'une question Graphique
+interactionOpen creation: Création d'une question Ouverte
+inValidMark: Note invalide
+
+# K
+kind of question: Quel type de question
+
+# L
+label: Label
+label_empty: Les champs des réponses ne doivent pas être vides
+legend: Légende
+lessInformation: Moins d'informations
+linkedDoc: Attention, le document que vous essayez de supprimer est lié à des questions
+linkpaper: Liées à un test
+linkedQuestions: Questions liées
+list: Liste
+list of exercises: Liste des exercices
+list of question: Liste des questions
+lock attempt: Vérouiller le test
+long: Longue
+
+# M
+manageImg: Gérer mes documents
+mark: Score
+mark this question: Noter cette question
+markTooBigest: La note doit être inférieure ou égale à
+maximum number of tries: Nombre d'essai maximum
+meaningMeasureDifficulty: Si l'indice est élevé, c'est que la question est facile ; Inversement, si un indice est faible, la question est difficile
+model: Modèle
+moreInformation: Plus d'informations
+multiple response: Réponse multiples
+my account: Mon compte
+my questions: Mes questions
+my shared questions: Mes questions partagées
+
+# N
+nameUser2Shared: Nom de l'utilisateur avec qui partager la question
+nbr_choices: Le nombre de choix doit être supérieur à deux
+never: Jamais
+newCategoryName: Nouveau nom de la catégorie
+newName: Nouveau nom du document
+newDoc: Nouveau document
+no: Non
+no answer: Pas de réponse
+noAnswerZone: Vous n\'avez mis aucune zone de réponse
+noDocFound: Pas de document trouvé
+noHintShow: Indices non vus, pas de pénalité
+noImg: Vous devez télécharger une image
+noOne: Aucune
+noPaperFound: Aucune copie
+noQuestion: Vous ne posez aucune question
+noQuestionFound: Pas de question trouvée
+noRightAnswer: Aucune bonne réponse
+notImageMesssage: Le document doit être une image
+noTitle: La question n\'a pas de titre
+notEnoughtPapers: Pour afficher la docimologie, il doit y avoir au moins 12 copies
+not yet mark: Pas encore noté
+noUserFound: Pas d'utilisateur trouvé
+nQuestion: Question n°
+number of papers: Nombre de copies
+number of questions: Nombre de questions
+number of questions to draw: Nombre de questions à tirer
+numerical: Numérique
+num_paper: Numéro de la copie
+
+# O
+oneWord: Un mot
+onlyOnce: => Les bonnes réponses ne sont comptabilisées qu'une seule fois.
+open: Ouverte
+open edition: Edition d'une question de type Ouverte
+order: Ordre
+orders: Consignes
+
+# P
+paper: Passage
+paper exo: Passage d'un test
+paper list: Liste des copies
+partially: Partiellement correcte
+penalty: Pénalité
+percentage: Pourcentage
+picture name: Nom de l'image
+planning_Of_Groups: Planning des groupes
+point: Point
+points: Points
+point_answer: Vous devez assigner un point à la réponse attendue
+point_answers: Vous devez assigner un point à chaque réponse
+pointInstruction: Les points doivent être attribués avant le placement de chaque zone de réponse
+pointRightResponse: Points bonne réponse
+position: => Positionner le(s) pointeur(s) ci-dessous (croix rouge) sur l'image. La position du centre du pointeur défini votre réponse.
+preview: Aperçu
+print paper: Imprimer la copie
+
+# Q
+qcm: QCM
+qcm creation: Création d'une question de type QCM
+qcm edition: Edition d'une question de type QCM
+question: Question
+questions: Questions
+question creation: Création d'une question
+questionSharedWith: Cette question est partagée avec les utilisateurs suivants
+
+# R
+random order of questions: Ordre des questions aléatoire
+raz: => Pour remettre à leurs position initiale tous les pointeurs, appuyez sur "c".
+square: Carré
+reset: Réinitialiser
+resizeZone: Pour redimmensionner une image, placez votre souris sur son coin inférieur droit et, tout en maintenant le clic gauche, faites la glisser
+response: Réponse
+response number: Numéro de la réponse
+result: Résultats
+role: Rôle
+
+# S
+save: Enregistrer
+saveNewOrder: Enregistrer le nouvel ordre
+sawHint: de pénalité pour indices vus
+search: Rechercher un document
+searchQuestion: Chercher des questions
+seeDoc: Voir les questions liées à ce document
+seeSharedWith: Question partagée avec des utilisateurs
+select: Sélectionner
+selected Image: Image sélectionnée
+selection: => Pour répondre, utiliser la technique du glisser/déposer.
+selectZone: Pour définir et déplacer une zone de réponse, utilisez le glisser/déposer
+self: Vous ne pouvez pas partager une question avec vous-même
+shape: Forme
+share: Partager
+shared by: Partagée par
+sharedUser: Partage de question
+shared with: Partager avec
+short: Courte
+show: Afficher
+show Instructions: Montrer les consignes
+sort: Trier les documents
+start date: Date de début
+subscription: Inscription
+
+# T
+temporary mark: Note temporaire
+test exit: Sortie du test
+title: Titre
+try: Tester
+type: Type
+
+# U
+unique response: Réponse Unique
+upload: Télécharger
+uploading: Chargement en cours
+use date of end: Utiliser une date de fin
+user: Utilisateur
+users: Utilisateurs
+
+# V
+validate: Valider
+
+# W
+warning: Êtes-vous sûr de vouloir supprimer ce document
+warning_change_type_q: Attention vous risquez de perdre vos données saisies, continuer
+whichAction: Quelle action souhaitez-vous réaliser
+with: Avec
+withResponse: Avec des réponses
+wrong: Fausse
+wrongName: Le nom saisi est incorrect
+wrongPoint: La valeur saisie est incorrecte
+
+# Y
+yes: Oui
+your answer: Votre réponse
+
+
+#properties of entities
+At the end of assessment: A la fin du test
+At the same time that the correction: En même temps que la correction
+After the last attempt: Après le dernier essai
+
+Category.value: Catégorie
+
+Choice.feedback: Commentaire si la réponse est selectionnée(facultatif)
+Choice.label: Réponse proposée
+Choice.positionForce: Forcer cette position
+Choice.rightResponse: Réponse attendue
+Choice.weight: Points pour cette réponse
+
+Coords.color: Couleur
+Coords.score: Points pour la bonne réponse
+Coords.shape: Forme
+
+Document.label: Document
+
+Exercise.correctionMode: Mode de la correction
+Exercise.description: Description (facultatif)
+Exercise.dispButtonIterrupt: Autoriser l'interruption du test
+Exercise.doprint: Imprimer la copie à la fin du test
+Exercise.duration: Durée
+Exercise.end_date: Date de fin
+Exercise.lockAttempt: Vérouiller le test
+Exercise.markMode: Note disponible
+Exercise.maxAttemps: Nombre d'essais autorisés
+Exercise.nbQuestion: Nombre de question à tirer aléatoirement
+Exercise.nbQuestionPage: Nombre de questions par page
+Exercise.shuffle: Ordre des questions aléatoire
+Exercise.start_date: Date de début
+Exercise.title: Titre de l'exercice
+
+Exepertise.description: Description
+Exepertise.title_expertise: Titre de l'expertise
+
+From: A partir du
+
+Groupes.name: Nom du groupe
+
+Hole.orthography: Autoriser les fautes d'orthographe
+Hole.score: Point pour une bonne réponse
+Hole.selector: Proposer une liste
+Hole.size: Taille du blanc
+
+Hint.penalty: Pénalité
+Hint.value: Indice
+
+Interaction.feedback: Commentaire à afficher avec la correction (facultatif)
+Interaction.invite: Question
+
+Inter_Open.ScoreMaxLongResp: Points pour la bonne réponse
+
+Inter_QCM.ScoreRightResponse: Points pour la bonne réponse
+Inter_QCM.ScoreFalseResponse: Points pour une mauvaise réponse
+Inter_QCM.shuffle: Ordre des choix aléatoire
+Inter_QCM.weightChoice: Attribuer les points par réponse
+
+Inter_Hole.html: Texte à trous
+Inter_Hole.orthography: Autoriser les fautes d'orthographe
+Inter_Hole.score: Point
+Inter_Hole.size: Taille
+
+LockAttempte.date: Date
+
+Multiple response: Réponse multiples
+
+Never: jamais
+
+Planning.end_time: Date de fin
+Planning.start_time: Date de début
+
+Question_creation: Création d'une question
+Question.description: Description de la question (facultatif)
+Question.model: Définir comme modèle
+Question.title: Titre de la question
+
+Roles.name: Nom du rôle
+
+Response.mark: Note
+Response.reponse: Réponse
+
+Subscription.admin: Donner les droits de gestionnaire (exercice)
+
+TypeOpenQuestion.value: Type de la question
+
+TypeQCM.value: Type du QCM
+
+Unique response: Réponse unique
+
+Unit.value: Unité
+
+User.firstName: Prénom
+User.mail: Adresse mail
+User.name: Nom
+User.password: Mot de passe
+User.username: Login utilisateur
+
+ujm_exobundle_interactiongraphictype_document: Documents
+ujm_exobundle_interactiongraphictype_interaction_hints: Indices
+ujm_exobundle_interactionopentype_interaction: Question ouverte
+ujm_exobundle_interactionopentype_interaction_hints: Indices
+ujm_exobundle_interactionopentype_wordResponses: Mots clés
+ujm_exobundle_interactionqcmtype_choices: Choix
+ujm_exobundle_interactionqcmtype_interaction: QCM
+ujm_exobundle_interactionqcmtype_interaction_hints: Indices
+
+ujm_exobundle_categorytype_value: Nom de la nouvelle catégorie
+
+WordResponse.score: Point attribués à cette réponse
+WordResponse.response_value: Mot

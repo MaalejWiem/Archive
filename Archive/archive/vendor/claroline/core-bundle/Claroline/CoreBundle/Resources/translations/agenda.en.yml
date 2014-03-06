@@ -1,0 +1,73 @@
+add_event: "Add an event"
+agenda_form_title : title
+agenda_form_end : "End date jj/mm/aaaa) or (jj-mm-aaaa)"
+agenda_form_start : "Start date jj/mm/aaaa) or (jj-mm-aaaa)"
+agenda_form_description : "Description"
+agenda_form_allDay : " All day"
+agenda_form_priority : "Priority"
+date_invalid : "An error occured. Please check if the start end date is bigger than the start date"
+confirm: "Are you sure about this change ?"
+end : "end"
+event_update : 'Updated'
+error: "An unexpeded error occured, please try again"
+new entry : "new entry"
+start date : "start datet"
+non plan task : "non plan tasks"
+tasks: 'Tasks'
+title : "title"
+all day : "Task"
+high : "high"
+medium : "medium"
+modify : 'modify an event'
+low : "low"
+no event found : 'no event found'
+tasks: Tasks
+title : "Title can not be empty"
+update : "update"
+prev : '<'
+next : '>'
+prevYear : '<<'
+nextYear : '>>'
+today : 'today'
+month : 'month'
+week : 'week'
+day: 'day'
+january: 'January'
+february: 'February'
+mars: 'Mars'
+april: 'April'
+may: 'May'
+june: 'June'
+july: 'July'
+august: 'August'
+september: 'September'
+october: 'October'
+november: 'November'
+december: 'December'
+jan: 'Jan'
+feb: 'Feb'
+mars: 'Mars'
+apr: 'Apr'
+may: 'May'
+ju: 'Ju'
+jul: 'Jul'
+aug: 'Aug'
+sept: 'Sep'
+oct: 'Oct'
+nov: 'Nov'
+dec: 'Dec'
+monday: 'Monday'
+tuesday: 'Tuesday'
+wednesday: 'Wednesday'
+thursday: 'Thursday'
+friday: 'Friday'
+saturday: 'Saturday'
+sunday: 'Sunday'
+mon: 'Mon'
+tue: 'Tue'
+wed: 'Wed'
+thu: 'Thu'
+fri: 'Fri'
+sat: 'Satur'
+sun: 'Sun'
+

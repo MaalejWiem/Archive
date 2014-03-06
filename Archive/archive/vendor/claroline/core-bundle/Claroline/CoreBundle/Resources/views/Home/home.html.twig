@@ -1,0 +1,74 @@
+{% extends 'ClarolineCoreBundle::layout.html.twig' %}
+
+{% block leftbar %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <div class="list-group menu">
+            <div class="list-group-item disabled">{{ "Content Administration" | trans({}, "home") }}</div>
+            <a class="list-group-item {% if path('claro_index') == app.request.requesturi %} active{% endif %}"
+                href="{{ path("claro_index") }}">
+                <i class="icon-home"></i> {{ "home" | trans({}, "platform") }}
+            </a>
+            <a class="list-group-item{{ "/type/menu" | compareRoute(" active") }}"
+                href="{{ path("claro_get_content_by_type", { "type": "menu"}) }}">
+                <i class="icon-list"></i> {{ "Menus" | trans({}, "home") }}
+            </a>
+            <a class="list-group-item relative{{ "/types" | compareRoute(" active") }}"²
+                href="{{ path("claroline_types_manager") }}">
+                <i class="icon-file"></i> {{ "Pages" | trans({}, "home") }}
+            </a>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="visible-xs spacing-right">
+        {{ block("leftbar") }}
+    </div>
+
+    {% if region['header'] is defined %}
+        <div class="region-header clearfix">
+            {{  region['header'] | raw }}
+        </div>
+    {% endif %}
+    <div class="row">
+        {% if region['left'] is defined %}
+            <div class="col-md-3">
+                <div class="row">
+                    {{ region['left'] | raw }}
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="{% if region['left'] is defined and
+            region['right'] is defined %}col-md-6{% elseif region['left'] is defined or
+            region['rigth'] is defined %}col-md-9{% else %}col-md-12{% endif %}">
+            {% if region['content'] is defined %}
+                <div class="row spacing-right">{{ region['content'] | raw }}</div>
+            {% endif %}
+
+            {{ content | raw }}
+        </div>
+
+        {% if region['right'] is defined %}
+            <div class="col-md-3">
+                <div class="row">{{ region['right'] | raw }}</div>
+            </div>
+        {% endif %}
+    </div>
+    {% if region['footer'] is defined %}
+        {{  region['footer'] | raw }}
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+        <script type="text/javascript" src="{{ asset('bundles/frontend/fluidvids/fluidvids.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/frontend/jquery/jquery-ui-1.9.2.custom/js/jquery-ui-1.9.2.custom.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/clarolinecore/js/home/height.js') }}"></script>
+        {% if is_granted('ROLE_ADMIN') %}
+            <script type="text/javascript" src="{{ asset('bundles/clarolinecore/js/home/home.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/clarolinecore/js/home/content.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/stfalcontinymce/vendor/tinymce/tinymce.jquery.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/clarolinecore/js/tinymce/tinymce.js') }}"></script>
+        {% endif %}
+{% endblock %}

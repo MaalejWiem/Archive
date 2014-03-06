@@ -1,0 +1,39 @@
+admin_category:
+    resource: "routing/admin/category.yml"
+    prefix:   /admin/category
+
+admin_exercise:
+    resource: "routing/admin/exercise.yml"
+    prefix:   /admin/exercise
+    
+admin_interaction_graphic:
+    resource: "routing/admin/interactionGraphic.yml"
+    prefix:   /admin/interactiongraphic
+    
+admin_interaction_open:
+    resource: "routing/admin/interactionOpen.yml"
+    prefix:   /admin/interactionopen
+    
+admin_interaction_qcm:
+    resource: "routing/admin/interactionQCM.yml"
+    prefix:   /admin/interactionqcm
+
+admin_paper:
+    resource: "routing/admin/paper.yml"
+    prefix:   /admin/paper    
+    
+admin_question:
+    resource: "routing/admin/question.yml"
+    prefix:   /admin/question
+    
+all_exercise:
+    resource: "routing/all/exercise.yml"
+    prefix:   /all/exercise
+
+all_hint:
+    resource: "routing/all/hint.yml"
+    prefix:   /all/hint
+
+all_paper:
+    resource: "routing/all/paper.yml"
+    prefix:   /all/paper

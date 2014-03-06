@@ -1,0 +1,52 @@
+{% macro recursiveChapter(root, chapter, lesson, isRoot) %}
+    {% if isRoot %}
+        <ul class='jquery-sortable-list overflow' data-list = '{{ root.id }}' id='lesson_menu' >
+    {% else %}
+        <ul class='' id = 'list_{{ root.id }}' data-list = '{{ root.id }}'>
+    {% endif %}
+    {% if root.__children|length %}
+        {% for child in root.__children %}
+            <li id = '{{ child.id }}' data-path = '{{ path('icap_lesson_move_chapter', { 'resourceId': lesson.id, 'chapterId': child.id })}}' >
+            {% if child.id == chapter.id %}
+                <div class='menu-item active_chapter' id = 'menu_item_{{ child.id }}'>
+            {% else %}
+                <div class='menu-item' id = 'menu_item_{{ child.id }}'>
+            {% endif %}
+            <i class='icon-caret-down collapsor {% if child.__children|length == 0%}empty{% endif %}' id='collapsor_icon_{{ child.id }}' data-collapsor = '{{ child.id }}'></i>
+            {#<i data-handle = '{{ child.id }}' class="icon-file-text-alt handle_sortable lesson_tooltip" data-original-title='{{ 'dragndrop_button'|trans({}, 'icap_lesson') }}'></i>#}
+            <a href="{{ path('icap_lesson_chapter', { 'resourceId': lesson.id, 'chapterSlug': child.slug }) }}">{{ child.title }}</a>
+            </div>
+            {{ _self.recursiveChapter(child, chapter, lesson, false) }}
+            </li>
+        {% endfor %}
+    {% endif %}
+    </ul>
+{% endmacro %}
+
+{% if tree is defined and tree != null and tree.__children is defined and tree.__children|length %}
+           {# data-spy="affix"#}
+    <div class='panel panel-default menu_lesson ' data-offset-top="90" data-clampedwidth = '#lesson_left_column'>
+        <div class="navbar navbar-default navbar-static-top">
+            <ul class='nav navbar-nav pull-right'>
+                {% if is_granted('EDIT', node) %}
+                     <li class='lesson_tooltip menu_lesson_button' data-original-title='{{ 'create_root'|trans({}, 'icap_lesson') }}'><a data-chapter = '{{ chapter.id }}' href="{{ path('icap_lesson_new_chapter', { 'resourceId': _resource.id, 'parentChapterId': tree.id })}}" class='icon_link createchapter btn'><span class="icon-plus"  ></span><span class='chapter_menu_labels'>{{ 'new_chapter'|trans({}, 'icap_lesson') }}</span></a></li>
+                    <li class='lesson_tooltip menu_lesson_button' data-original-title='{{ 'enabled_move'|trans({}, 'icap_lesson') }}'><a href='#' id='enable_move' data-status = 'enable' class='icon_link'><span class="icon-move" ></span><span class='chapter_menu_labels'>{{ 'reorganize'|trans({}, 'icap_lesson') }}</span></a></li>
+                {%  endif  %}
+                <li class='lesson_tooltip menu_lesson_button' data-original-title='{{ 'collapse_all'|trans({}, 'icap_lesson') }}'><a href='#' id='collapse_all' class='icon_link btn'> <span class="icon-long-arrow-up" ></span><span class="icon-minus"></span></a></li>
+                <li class='lesson_tooltip menu_lesson_button' data-original-title='{{ 'expand_all'|trans({}, 'icap_lesson') }}'><a href='#' id='expand_all' class='icon_link btn'><span class="icon-long-arrow-down"></span><span class="icon-reorder"></span></a></li>
+            </ul>
+        </div>
+        <div class='chapter_list_header'>{{ 'chapter_list_header'|trans({}, 'icap_lesson') }}</div>
+        {{ _self.recursiveChapter(tree, chapter, _resource, true) }}
+        <br />
+
+{#        <form id='moveform' action ='{{ path('icap_lesson_move_chapter', { 'resourceId': _resource.id, 'chapterId': chapter.id })}}' method='post' style='display:none;'>
+            {{ form_rest(form) }}
+        </form>#}
+        <div style='display:none;' id = 'moveChapterFormContainer'>
+            {% include 'IcapLessonBundle:Lesson:choiceMoveChapterForm.html.twig' %}
+        </div>
+    </div>
+{% else %}
+    {{ 'There is no chapter'|trans({}, 'icap_lesson') }}
+{% endif %}

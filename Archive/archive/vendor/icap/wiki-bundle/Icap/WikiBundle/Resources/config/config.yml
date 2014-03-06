@@ -1,0 +1,10 @@
+plugin:
+    has_options: false
+    icon: icap_wiki_icon_admin.png
+
+    resources:
+        - class: Icap\WikiBundle\Entity\Wiki
+          name: icap_wiki          
+          is_browsable: false
+          is_exportable: false
+          icon: icap_wiki_icon.png

@@ -1,0 +1,127 @@
+{#
+ # ExoOnLine
+ # Copyright or © or Copr. Université Jean Monnet (France), 2012
+ # dsi.dev@univ-st-etienne.fr
+ #
+ # This software is a computer program whose purpose is to [describe
+ # functionalities and technical features of your software].
+ #
+ # This software is governed by the CeCILL license under French law and
+ # abiding by the rules of distribution of free software.  You can  use,
+ # modify and/ or redistribute the software under the terms of the CeCILL
+ # license as circulated by CEA, CNRS and INRIA at the following URL
+ # "http://www.cecill.info".
+ #
+ # As a counterpart to the access to the source code and  rights to copy,
+ # modify and redistribute granted by the license, users are provided only
+ # with a limited warranty  and the software's author,  the holder of the
+ # economic rights,  and the successive licensors  have only  limited
+ # liability.
+ #
+ # In this respect, the user's attention is drawn to the risks associated
+ # with loading,  using,  modifying and/or developing or reproducing the
+ # software by the user in light of its specific status of free software,
+ # that may mean  that it is complicated to manipulate,  and  that  also
+ # therefore means  that it is reserved for developers  and  experienced
+ # professionals having in-depth computer knowledge. Users are therefore
+ # encouraged to load and test the software's suitability as regards their
+ # requirements in conditions enabling the security of their systems and/or
+ # data to be ensured and,  more generally, to use and operate it in the
+ # same conditions as regards security.
+ #
+ # The fact that you are presently reading this means that you have had
+ # knowledge of the CeCILL license and that you accept its terms.
+#}
+
+{% set layout = "ClarolineCoreBundle:Workspace:layout.html.twig" %}
+
+{% if isDesktop() %}
+    {% set layout = "ClarolineCoreBundle:Desktop:layout.html.twig" %}
+    {% block breadcrumb %}
+        {{
+            macros.breadcrumbs([
+                {
+                    'icon': 'icon-briefcase',
+                    'name': 'desktop'|trans({}, 'platform'),
+                    'href': path('claro_desktop_open')
+                },
+                {
+                    'name': 'question creation' | trans,
+                    'href': ''
+                }
+            ])
+        }}
+    {% endblock %}
+{% endif %}
+
+{% extends layout %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/ujmexo/css/tableLayout.css') }}" type="text/css" rel="stylesheet"/>
+{% endblock %}
+
+{% block title %} {{ 'question creation' | trans }} {% endblock %}
+    
+{% if _resource is defined %}
+    {% block resourceBreadcrumb %}
+        <li><a href="{{ path('claro_resource_open', { 'resourceType': _resource.resourceNode.resourceType.name(), 'node': _resource.resourceNode.id }) }}">{{ _resource.getResourceNode().getName() }}</a></li>
+        <li><a href="{{ path('ujm_exercise_questions', { 'id': exoID }) }}">{{ 'my questions' | trans }}</a></li>
+        <li class="active">{{ 'question creation' | trans }}</li>
+    {% endblock %}
+{% endif %}
+
+{% block section_content %}
+
+    {% set al = '' %}
+
+    {% for key,value in linkedCategory %}
+        {% set al = al ~ key ~ '/' ~ value ~ ';' %}
+    {% endfor %}
+
+    <input type="hidden" id="categoryArray" value="{{al}}"/>
+
+    <div class="panel-heading">
+        <h1>{{ 'question creation' | trans }}</h1>
+    </div>
+    <div class="panel-body">
+        {% if exoID == -1 %}
+            <a class="btn btn-primary" href="{{ path('ujm_question_index') }}">
+                <i class="icon-arrow-left"></i> {{ 'back to the list' | trans }}
+            </a>
+        {% else %}
+            <a class="btn btn-primary" href="{{ path('ujm_exercise_questions', { 'id': exoID }) }}">
+                <i class="icon-arrow-left"></i> {{ 'back' | trans }}
+            </a>
+        {% endif %}
+    </div>
+    <div class="list-group">
+        <div class="list-group-item">
+            <form name="form_type_question">
+                <div class="form-group row">
+                <label class="col-md-3 control-label" for="menu_type_question">{{ 'kind of question' | trans }}?&nbsp;&nbsp;</label>
+                <div class="col-md-9">
+                    <select class="form-control" name="menu_type_question" id="menu_type_question" onchange="cherche_type('{{ 'warning_change_type_q' | trans }} ?', '{{ exoID }}', '{{ path('ujm_question_display_form_type')}}' )">
+                        <option selected="selected">{{ 'choose_type' | trans }}</option>
+                        <option value="1">{{ 'hole' | trans }}</option>
+                        <option value="2">{{ 'qcm' | trans }}</option>
+                        <option value="3">{{ 'graphic' | trans }}</option>
+                        <option value="4">{{ 'open' | trans }}</option>
+                    </select>
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>{# end div of extend panel #}
+    <div id="formulaire_interactions">
+        {% if formWithError is defined %}
+            {{ formWithError | raw }}
+        {% endif %}
+    {# no need end div (extend panel) #}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/ujmexo/js/question.js') }}"></script>
+{% endblock %}

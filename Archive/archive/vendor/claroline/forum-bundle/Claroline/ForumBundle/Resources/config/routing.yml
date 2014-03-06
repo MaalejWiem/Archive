@@ -1,0 +1,4 @@
+claro_forum:
+    resource: "@ClarolineForumBundle/Controller/ForumController.php"
+    type:     annotation
+    prefix:   /

@@ -1,0 +1,17 @@
+announcement_creation: 'Announcement creation'
+announcement_delete_confirm_message: 'This announcement will be definitely deleted.'
+announcement_delete_confirm_title: 'Do you want to delete this announcement ?'
+announcement_edition: 'Announcement edition'
+announcement_form_announcer: Announcer
+announcement_form_content: Message
+announcement_form_title: Title
+announcement_form_visible: Visible
+announcement_form_visible_from: From
+announcement_form_visible_until: Until
+announcements_list: 'Announcements list'
+at: at
+by: by
+creates_on: 'Create on'
+create_new_announcement: 'Create new announcement'
+published_on: 'Published on'
+visible_from_until_condition: 'Until date must be greater than From date'
